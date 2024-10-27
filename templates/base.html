@@ -21,8 +21,8 @@
                 <div class="auth-box">
                     {% if user.is_authenticated %}
                     <div class="user-account">
-                        <div class="user-photo">    
-
+                        <div >    
+                            <img class="user-photo" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
                         </div>
                         <div class="user-username">
                             {{ request.user.username }}
