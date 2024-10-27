@@ -49,29 +49,9 @@
             </button>
         </div>
     </form>
+    {% if SOCIALACCOUNT_ENABLED %}
+        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+    {% endif %}
 
-    <div class="social-options">
-        <div class="form-or">
-            Or
-        </div>
-        <p>Login with: </p>
-        <div class="form-social-icon-box">
-            <a href="{% provider_login_url "google" %}">
-                <div class="form-social-icon">
-                    <i class="fa-brands fa-google"></i>
-                </div>
-            </a>
-            <a href="{% provider_login_url 'github' %}">
-                <div class="form-social-icon">
-                    <i class="fa-brands fa-github"></i>
-                </div>
-            </a>
-            <a href="{% provider_login_url "facebook" %}">
-                <div class="form-social-icon">
-                    <i class="fa-brands fa-facebook"></i>
-                </div>
-            </a>
-        </div>
-    </div>
 </div>
 {% endblock %}
