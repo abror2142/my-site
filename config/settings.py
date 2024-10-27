@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
 
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
     'accounts.apps.AccountsConfig',
 
     'widget_tweaks',
@@ -143,6 +146,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# ENV variables
+GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
+
 # Custom User Model
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -153,3 +160,20 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_VERIFICATION_BY_CODE_ENABLED = True
 ACCOUNT_EMAIL_VERIFICATION_BY_CODE_MAX_ATTEMPTS = 5
 ACCOUNT_EMAIL_VERIFICATION_BY_CODE_TIMEOUT = 3600
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': GOOGLE_CLIENT_ID,
+            'secret': GOOGLE_CLIENT_SECRET,
+            'key': ''
+        },
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'offline',
+        }
+    },
+}

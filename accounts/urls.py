@@ -3,5 +3,6 @@ from .views import profile
 
 urlpatterns = [
     path('', include('allauth.urls')),
-    path('profile/', profile, name='profile_page')
+    path('', include('allauth.socialaccount.urls')),
+    path('profile/', profile, name='profile_page'),
 ]

@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load allauth account %}
 {% load widget_tweaks %}
+{% load socialaccount %}
 
 {% block head_title %}
     {% trans "Sign In" %}
@@ -55,9 +56,11 @@
         </div>
         <p>Login with: </p>
         <div class="form-social-icon-box">
-            <div class="form-social-icon">
-                <i class="fa-brands fa-google"></i>
-            </div>
+            <a href="{% provider_login_url "google" %}"">
+                <div class="form-social-icon">
+                    <i class="fa-brands fa-google"></i>
+                </div>
+            </a>
             <div class="form-social-icon">
             <i class="fa-brands fa-facebook"></i>
             </div>
