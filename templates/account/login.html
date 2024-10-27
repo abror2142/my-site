@@ -56,17 +56,21 @@
         </div>
         <p>Login with: </p>
         <div class="form-social-icon-box">
-            <a href="{% provider_login_url "google" %}"">
+            <a href="{% provider_login_url "google" %}">
                 <div class="form-social-icon">
                     <i class="fa-brands fa-google"></i>
                 </div>
             </a>
-            <div class="form-social-icon">
-            <i class="fa-brands fa-facebook"></i>
-            </div>
-            <div class="form-social-icon">
-            <i class="fa-brands fa-square-x-twitter"></i>
-            </div>
+            <a href="{% provider_login_url 'github' %}">
+                <div class="form-social-icon">
+                    <i class="fa-brands fa-github"></i>
+                </div>
+            </a>
+            <a href="{% provider_login_url "facebook" %}">
+                <div class="form-social-icon">
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+            </a>
         </div>
     </div>
 </div>

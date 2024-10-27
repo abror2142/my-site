@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.github',
 
     'accounts.apps.AccountsConfig',
 
@@ -146,9 +148,21 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTHENTICATION_BACKENDS = [
+
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
 # ENV variables
 GOOGLE_CLIENT_ID = config('GOOGLE_CLIENT_ID')
 GOOGLE_CLIENT_SECRET = config('GOOGLE_CLIENT_SECRET')
+
+FACEBOOK_CLIENT_ID = config('FACEBOOK_CLIENT_ID')
+FACEBOOK_CLIENT_SECRET = config('FACEBOOK_CLIENT_SECRET')
+
+GITHUB_CLIENT_ID = config('GITHUB_CLIENT_ID')
+GITHUB_CLIENT_SECRET = config('GITHUB_CLIENT_SECRET')
 
 # Custom User Model
 AUTH_USER_MODEL = 'accounts.User'
@@ -161,6 +175,9 @@ ACCOUNT_EMAIL_VERIFICATION_BY_CODE_ENABLED = True
 ACCOUNT_EMAIL_VERIFICATION_BY_CODE_MAX_ATTEMPTS = 5
 ACCOUNT_EMAIL_VERIFICATION_BY_CODE_TIMEOUT = 3600
 
+# if email is laready registered, log into that account
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True 
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
@@ -176,4 +193,38 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'offline',
         }
     },
+    'facebook': {
+        'APP': {
+            'client_id': FACEBOOK_CLIENT_ID,
+            'secret': FACEBOOK_CLIENT_SECRET
+        },
+        'METHOD': 'oauth2',  # Set to 'js_sdk' to use the Facebook connect SDK
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name',
+        ],
+        'EXCHANGE_TOKEN': True,
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v17.0',
+        'GRAPH_API_URL': 'https://graph.facebook.com/v17.0',
+    },
+    'github': {
+        'APP': {
+            'client_id': GITHUB_CLIENT_ID,
+            'secret': GITHUB_CLIENT_SECRET
+        },
+        'SCOPE': [
+            'user',
+        ],
+    }
 }
