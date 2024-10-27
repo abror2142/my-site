@@ -1,0 +1,70 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account %}
+{% load widget_tweaks %}
+
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+
+{% block content %}
+<div class="auth-page login-page">
+
+    <div class="auth-page-header">
+        <div class="auth-page-icon">
+            <i class="fa-solid fa-right-to-bracket"></i>
+        </div>
+
+        <div class="auth-page-title">
+            {% trans "Sign In" %}
+        </div>
+    </div>
+
+    <form class="auth-page-form login-form" method="post">
+        {% csrf_token %}
+        
+        {% with field=form.login %}
+            <div class="login-field form-field">
+                {% render_field field class+="login form-input" placeholder="Username or Email" %}
+            </div>
+        {% endwith %}
+
+        {% with field=form.password %}
+            <div class="password-field form-field">
+                {% render_field field class+="password form-input" placeholder="Password"%}
+            </div>
+        {% endwith %}
+
+        {% with field=form.remember %}
+            <div class="remember-me-field">
+                <label for="id_remember">Remember Me:</label>
+                {% render_field field class+="remember-me" %}
+            </div>
+        {% endwith %}
+
+        <div class="form-btn-box">
+            <button type="submit" class="submit-btn form-action-btn">
+                {% trans "Sign In" %}
+            </button>
+        </div>
+    </form>
+
+    <div class="social-options">
+        <div class="form-or">
+            Or
+        </div>
+        <p>Login with: </p>
+        <div class="form-social-icon-box">
+            <div class="form-social-icon">
+                <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="form-social-icon">
+            <i class="fa-brands fa-facebook"></i>
+            </div>
+            <div class="form-social-icon">
+            <i class="fa-brands fa-square-x-twitter"></i>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

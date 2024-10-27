@@ -1,0 +1,69 @@
+{% extends "account/base_entrance.html" %}
+{% load allauth i18n %}
+{% load widget_tweaks %}
+
+{% block head_title %}
+    {% trans "Signup" %}
+{% endblock head_title %}
+
+{% block content %}
+
+<div class="auth-page signup-page">
+    <div class="auth-page-header">
+            <div class="auth-page-icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            <div class="auth-page-title">
+            {% trans "Sign Up" %}
+            </div>
+    </div>
+
+    <form method="post" class="auth-page-form signup-form">
+        {% with field=form.username %}
+            <div class="form-field username-field"> 
+                {% render_field field class+="username form-input" placeholder="Username" %}
+            </div>
+        {% endwith %}
+
+        {% with field=form.email %}
+            <div class="form-field email-field">
+                {% render_field field class+="email form-input"  placeholder="Email" %}
+            </div>
+        {% endwith %}
+
+        {% with field=form.password1 %}
+            <div class="form-field password-field">
+                {% render_field field class+="password form-input" placeholder="Password" %}
+            </div>
+        {% endwith %}
+
+        {% with field=form.password2 %}
+            <div class="form-field password2-field">
+                {% render_field field class+="password2 form-input" placeholder="Confirm Password" %}
+            </div>
+        {% endwith %}
+
+        <div class="form-btn-box">
+            <button type="submit" class="submit-btn form-action-btn">
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <div class="social-options">
+        <p>Or</p>
+        <p>Sign Up with: </p>
+        <div class="form-social-icon-box">
+            <div class="form-social-icon">
+                <i class="fa-brands fa-google"></i>
+            </div>
+            <div class="form-social-icon">
+            <i class="fa-brands fa-facebook"></i>
+            </div>
+            <div class="form-social-icon">
+            <i class="fa-brands fa-square-x-twitter"></i>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

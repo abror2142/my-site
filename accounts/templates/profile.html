@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <h2>Profile Page!</h2>
+    <h1>
+        {{ request.user.username }}
+        {{ request.user.email }}
+    </h1>
+{% endblock main %}
+
