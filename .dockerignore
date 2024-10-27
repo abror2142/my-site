@@ -2,3 +2,7 @@ compose.yaml
 Dockerfile
 .venv
 .env
+.gitignore
+*.sqlite3
+.dockerignore
+.git
