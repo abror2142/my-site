@@ -196,6 +196,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'offline',
         }
     },
+    
     'facebook': {
         'APP': {
             'client_id': FACEBOOK_CLIENT_ID,
@@ -221,6 +222,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERSION': 'v17.0',
         'GRAPH_API_URL': 'https://graph.facebook.com/v17.0',
     },
+
     'github': {
         'APP': {
             'client_id': GITHUB_CLIENT_ID,

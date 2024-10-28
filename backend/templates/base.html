@@ -1,6 +1,5 @@
 {% load static %}
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -10,54 +9,29 @@
         {% endblock title %}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
         {% block head_extra %}
         {% endblock head_extra %}
+        {% include "./layout/links.html" %}
     </head>
     <body class="body">
-        <header class="header">
-            {% block header %}
-                <h1>Here is the Header!</h1>
-                <div class="auth-box">
-                    {% if user.is_authenticated %}
-                    <div class="user-account">
-                        <div >    
-                            <img class="user-photo" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
-                        </div>
-                        <div class="user-username">
-                            {{ request.user.username }}
-                        </div>
-                    </div>
-                    {% else %}
-                    <div class="auth-btn-box">
-                        <a 
-                            class="login-btn"
-                            href="{% url 'account_login' %}"
-                        >
-                            Sign In
-                        </a>
-                        <a 
-                            href="{% url 'account_signup' %}"
-                            class="signup-btn"
-                        >
-                            Sign Up
-                        </a>
-                    </div>
-                    {% endif %}
-                </div>
-            {% endblock header %}
-        </header>
-        <main class="main">
-            {% block main %}
 
-            {% endblock main %}
-        </main>
-        <footer class="footer">
-            {% block footer %}
-                <h1>Here is the Footer!</h1>
-            {% endblock footer %}
-        </footer>
-        <script src="" async defer ></script>
-        <script src="https://kit.fontawesome.com/9f05e44f8a.js" crossorigin="anonymous"></script>
+        {% block header %}
+            <header class="header">
+                {% include "./containers/header.html" %}
+            </header>
+        {% endblock header %}
+
+        {% block main %}
+            <main class="main">
+            </main>
+        {% endblock main %}
+
+        {% block footer %}
+            <footer class="footer">
+                {% include "./containers/footer.html" %}
+            </footer>
+        {% endblock footer %}
+
+        {% include "./layout/scripts.html" %}
     </body>
 </html>

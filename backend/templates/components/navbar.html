@@ -1,0 +1,29 @@
+<nav>
+    <div class="auth-box">
+        {% if user.is_authenticated %}
+        <div class="user-account">
+            <div >    
+                <img class="user-photo" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
+            </div>
+            <div class="user-username">
+                {{ request.user.username }}
+            </div>
+        </div>
+        {% else %}
+        <div class="auth-btn-box">
+            <a 
+                class="login-btn"
+                href="{% url 'account_login' %}"
+            >
+                Sign In
+            </a>
+            <a 
+                href="{% url 'account_signup' %}"
+                class="signup-btn"
+            >
+                Sign Up
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</nav>
