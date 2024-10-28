@@ -4,15 +4,21 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        {% block title %} 
-            <title></title>
-        {% endblock title %}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% block head_extra %}
-        {% endblock head_extra %}
+
+        <title>
+            {% block title %} 
+                My Site
+            {% endblock title %}
+        </title>
+        
+        <!-- Page Specific headers might go there! -->
+        {% block head_extra %} {% endblock head_extra %}
+
         {% include "./layout/links.html" %}
     </head>
+
     <body class="body">
 
         {% block header %}

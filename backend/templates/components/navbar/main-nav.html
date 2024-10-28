@@ -1,0 +1,90 @@
+{% load static %}
+
+<div class="main-nav">
+    <div class="left">
+        <img 
+            src="{% static 'image/logo.svg' %}"
+            class="nav-logo-img"
+        />
+    </div>
+
+    <div class="middle">
+        <div class="categories-box">
+            <div class="icon">
+                <i class="fa-solid fa-list"></i>
+            </div>
+
+            <p class="title">
+                Categories
+            </p>
+        </div>
+        
+        <form class="search-bar" method="post">
+            <input
+                class="search-input" 
+                type="text"
+                placeholder="Search..."
+            />
+
+            <button type="submit" class="search-button">
+                <div class="icon">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <div>
+            </button>
+        </form>
+    </div>
+
+    <div class="right">
+        <div class="action-box user-account">
+            <div class="icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <p class="title">
+                Account
+            </p>
+
+            <div class="auth-box">
+                <a 
+                    class="login-btn no-wrap"
+                    href="{% url 'account_login' %}"
+                >
+                    Sign In
+                </a>
+                <a 
+                    href="{% url 'account_signup' %}"
+                    class="signup-btn no-wrap"
+                >
+                    Sign Up
+                </a>
+            </div>
+        </div>
+
+        <div class="action-box">
+            <div class="icon">
+                <i class="fa-solid fa-box"></i>
+            </div>
+            <p class="title">
+                Orders
+            </p>
+        </div>
+        <div class="action-box">
+            <div class="icon">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <p class="title">
+                Wishlist
+            </p>
+        </div>
+        <div class="action-box">
+            <div class="icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <p class="title">
+                Cart
+            </p>
+        </div>
+
+       
+       
+    </div>
+</div>
