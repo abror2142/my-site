@@ -1,1 +1,151 @@
-<h1>Here is the Footer!</h1>
+
+{% load static %}
+
+<div class="footer-top">
+    <div class="contact-box box">
+        <p class="footer-title">
+            Contact us
+        </p>
+        <div class="contact">
+            <div class="phone">   
+                <p>
+                    Phone:
+                </p>
+                <p>
+                    +123(4)567-8901:
+                </p>
+            </div class="email">
+            <div>   
+                <p>
+                    Email:
+                </p>
+                <p>
+                    example@sample.com:
+                </p>
+            </div>
+        </div>
+        <p class="or">
+            Or
+        </p class="message-title">
+        <p>
+            Send a message:
+        </p>
+        <form method="post"  class="contact-form">
+            <input 
+                type="text"
+                placeholder="Your Name"
+                class="field"
+            />
+            <input 
+                class="field"
+                type="text"
+                placeholder="Email"
+            />
+            <input
+                class="field" 
+                type="text"
+                placeholder="What is your question?"
+            />
+            <button 
+                type="submit"
+                class="send-btn"
+            >
+                Send
+            </button>
+        </form>
+    </div>
+
+    <div class="company-box box">
+        <p class="title">
+            Company
+        </p>
+        <ul class="footer-list">
+            <li class="footer-list-item"><a>About Us</a></li>
+            <li class="footer-list-item"><a>Our Services</a></li>
+            <li class="footer-list-item"><a>Privacy Policy</a></li>
+            <li class="footer-list-item"><a>Events</a></li>
+            <li class="footer-list-item"><a>Sponsors</a></li>
+        </ul>
+    </div>
+    
+    <div class="logo-box box">
+        <img 
+        class="logo-img"
+            src="{% static 'image/logo.svg' %}"
+        />
+        <p class="scan-text">
+            Scan to get our app:
+        </p>
+        <div class="get-app-box">
+            <img src="{% static 'image/qr-code.jpg' %}" class="get-app-img"/>
+            <img src="{% static 'image/app.png' %}" class="get-app-img"/>
+        </div>
+    </div>
+
+    <div class="get-help-box box">
+        <p class="title">
+            Get Help
+        </p>
+        <ul class="footer-list">
+            <li class="footer-list-item"><a>FAQ</a></li>
+            <li class="footer-list-item"><a>Returns</a></li>
+            <li class="footer-list-item"><a>Shipping</a></li>
+            <li class="footer-list-item"><a>Order Status</a></li>
+            <li class="footer-list-item"><a>Payment Options</a></li>
+        </ul>
+    </div>
+    
+    <div class="address-box box">
+        <p class="title">
+            Address
+        </p>
+
+        <div class="address-text">
+            <p>
+                12 Muhsin Street
+            </p>
+            <p>
+                Chilanzar Region
+            </p>
+            <p>
+                Tashkent, Uzbekistan
+            </p>
+
+            <p class="location-text">
+                Location:
+            </p>
+            <div class="map-img">
+                <img 
+                    src="{% static 'image/map.png' %}"
+                />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer-bottom">
+    <div class="social-icons-box">
+        <div class="social-icon">
+            <i class="fa-brands fa-square-x-twitter"></i>
+        </div>
+        <div class="social-icon">
+            <i class="fa-brands fa-square-instagram"></i>
+        </div>
+        <div class="social-icon">
+            <i class="fa-brands fa-square-youtube"></i>
+        </div>
+        <div class="social-icon">
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
+        <div class="social-icon">
+            <i class="fa-brands fa-square-whatsapp"></i>
+        </div>
+        <div class="social-icon">
+            <i class="fa-brands fa-telegram"></i>
+        </div>
+    </div>
+
+    <div class="copyright">
+        Copyright &copy; 2024. Dunya LLC. All rights are reserved
+    </div>
+</div>

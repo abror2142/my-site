@@ -1,0 +1,80 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    background-color: rgb(21, 12, 28);
+}
+
+.footer-top {
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    color: white;
+}
+
+.footer-top .box {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-page {
+    display: flex;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-box,
+.get-help-box {
+    width: 150px;
+}
+
+.logo-box  {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.logo-img {
+    width: 200px;
+}
+
+.get-app-img {
+    width: 100px;
+}
+
+.get-app-box {
+    display: flex;
+    gap: 1em;
+
+}
+
+.map-img {
+    width: 250px;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em
+}
+
+.social-icons-box {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.social-icon {
+    color: white;
+}
+
+.copyright {
+    color: white;
+}
