@@ -30,6 +30,10 @@
     gap: 1em;
 }
 
+.top-nav-left {
+    border-bottom: 1px solid transparent;
+}
+
 /* Main Nav => Middle Nav */
 .icon {
     display: flex;
@@ -130,7 +134,7 @@
 }
 
 .categories-box .icon {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 
@@ -207,5 +211,9 @@
     border-radius: 10px 10px 0 0;
     color: white;
     background-color: rgb(42, 16, 67);
+}
+
+.top-nav-left:hover {
+    border-bottom: 1px solid black;
 }
 
