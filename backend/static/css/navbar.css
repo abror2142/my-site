@@ -27,11 +27,16 @@
 
 .top-nav > div {
     display: flex;
-    gap: 1em;
+    align-items: center;
+    gap: .5em;
 }
 
-.top-nav-left {
+.top-nav-text {
     border-bottom: 1px solid transparent;
+}
+
+.top-nav-text:hover {
+    border-bottom: 1px solid black;
 }
 
 /* Main Nav => Middle Nav */
@@ -213,7 +218,5 @@
     background-color: rgb(42, 16, 67);
 }
 
-.top-nav-left:hover {
-    border-bottom: 1px solid black;
-}
+
 
