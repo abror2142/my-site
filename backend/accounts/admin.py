@@ -14,5 +14,5 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(UserInfo)
 class UserInfoAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'pictureURL']
+    list_display = ['id', 'user']
     list_display_links = ['user']
