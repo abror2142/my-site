@@ -50,20 +50,9 @@
         </div>
     </form>
 
-    <div class="social-options">
-        <p>Or</p>
-        <p>Sign Up with: </p>
-        <div class="form-social-icon-box">
-            <div class="form-social-icon">
-                <i class="fa-brands fa-google"></i>
-            </div>
-            <div class="form-social-icon">
-            <i class="fa-brands fa-facebook"></i>
-            </div>
-            <div class="form-social-icon">
-            <i class="fa-brands fa-square-x-twitter"></i>
-            </div>
-        </div>
-    </div>
+    {% if SOCIALACCOUNT_ENABLED %}
+        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+    {% endif %}
 
+</div>
 {% endblock content %}
