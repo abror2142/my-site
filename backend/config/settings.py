@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+
 from pathlib import Path
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.github',
 
-    'accounts.apps.AccountsConfig',
+    'apps.AuthAccountsConfig',
 
     'widget_tweaks',
 ]
@@ -181,6 +182,7 @@ ACCOUNT_EMAIL_VERIFICATION_BY_CODE_TIMEOUT = 3600
 # if email is laready registered, log into that account
 SOCIALACCOUNT_EMAIL_AUTHENTICATION = True 
 SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
