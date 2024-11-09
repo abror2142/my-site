@@ -48,6 +48,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
 
     'apps.AuthAccountsConfig',
+    'core.apps.CoreConfig',
+    'payment.apps.PaymentConfig',
+    'cart.apps.CartConfig',
+    'product.apps.ProductConfig',
+    'orders.apps.OrdersConfig',
 
     'widget_tweaks',
 ]
