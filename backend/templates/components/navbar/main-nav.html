@@ -36,7 +36,7 @@
 
     <div class="right">
         
-        <div class="action-box">
+        <div class="dropdown">
             <div class="icon">
                 <i class="fa-solid fa-box"></i>
             </div>
@@ -45,7 +45,7 @@
             </p>
         </div>
         
-        <div class="action-box">
+        <div class="dropdown">
             <div class="icon">
                 <i class="fa-solid fa-heart"></i>
             </div>
@@ -54,7 +54,7 @@
             </p>
         </div>
         
-        <div class="action-box">
+        <div class="dropdown">
             <div class="icon">
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
@@ -64,13 +64,13 @@
         </div>
         
         {% if user.is_authenticated %}
-            <div class="action-box account-box">
-                <div class="user-box">
+            <div class="dropdown">
+                <div class="dropdown-menu">
                     <img class="user-image" src="{{ user.userinfo.image.url }}" />
                     {{ user.username }}
                 </div>
-                <div class="account-info hide" >
-                    <a class="account-settings" href="{% url 'profile_page' %}">
+                <div class="dropdown-item hide" >
+                    <a class="settings-btn" href="{% url 'profile_page' %}">
                         <p>
                             Settings
                         </p>
@@ -89,16 +89,19 @@
                 </div>
             </div>
         {% else %}
-            <div class="action-box user-account"> 
-                <div class="icon">
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                
-                <p class="title">
-                    Account
-                </p>
         
-                <div class="auth-box">
+            <div class="dropdown"> 
+                <button class="dropdown-btn">
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    
+                    <p class="title">
+                        Account
+                    </p>
+                </button>
+
+                <div class="dropdown-content hide">
                     <a 
                         class="login-btn no-wrap"
                         href="{% url 'account_login' %}"
