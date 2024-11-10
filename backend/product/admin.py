@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, ProductCategory, ProductImage, ProductVariant, Brand, Company
+from .models import Category, Product, ProductCategory, ProductImage, ProductVariant, Brand, Company, ProductColorOption
 
 
 @admin.register(Category)
@@ -42,3 +42,8 @@ class BrandAdmin(admin.ModelAdmin):
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_display_links = ['name']
+
+@admin.register(ProductColorOption)
+class ProductColorOptionAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'code']
+    list_display_links = ['name', 'code']
