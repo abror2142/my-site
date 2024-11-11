@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
 
     'widget_tweaks',
+    'crispy_forms',
+     "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -244,3 +246,9 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+

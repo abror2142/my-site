@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+<div class="product-from">
+    <form>
+        {{ forms.product_form|crispy }}
+        {{forms.product_variant_form|crispy}}
+        {% comment %} {{forms.product_form}}
+        {{forms.product_form}}
+        {{forms.product_form}}
+        {{forms.product_form}}
+        {{forms.product_form}} {% endcomment %}
+    </form>
+</div>
+{% endblock main %}
+

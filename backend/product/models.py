@@ -46,9 +46,12 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=150)
     brand_company = models.ForeignKey(CompanyBrand, on_delete=models.SET_NULL, null=True, blank=True)
+    short_description = models.CharField(max_length=255)
+    full_description = models.TextField(null=True, blank=True)
     added_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     produced_at = models.DateField(null=True, blank=True)
+    
     def __str__(self):
         return self.name
 
@@ -122,14 +125,11 @@ class CustomCharacterOption(models.Model):
 class ProductVariant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=150)
-    short_description = models.CharField(max_length=255)
-    full_description = models.TextField(null=True, blank=True)
     color = models.ForeignKey(ProductColor, on_delete=models.SET_NULL, null=True, blank=True)
     memory = models.ForeignKey(ProductMemory, on_delete=models.SET_NULL, null=True, blank=True)
     size = models.ForeignKey(ProductSize, on_delete=models.SET_NULL, null=True, blank=True)
     image_set = models.ForeignKey(ProductImageSet, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-
 
     def __str__(self):
         return self.name
