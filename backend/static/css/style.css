@@ -13,7 +13,7 @@ img {
     width: 100%;
 }
 
-button {
+/* button {
     border: none;
     background-color: transparent;
 }
@@ -21,7 +21,7 @@ button {
 input {
     border: none;
     outline: none;
-}
+} */
 
 .no-wrap {
     text-wrap: nowrap;

@@ -1,26 +1,29 @@
 from django.shortcuts import render
 
 
-from .forms import ProductCategoryForm, ProductColorForm, ProductImageForm, ProductImageSetForm, ProductMemoryForm, ProductSizeForm, ProductVariantCustomCharacterForm, ProductForm, ProductVariantForm, CompanyForm, CustomCharacterForm, CustomCharacterOptionForm, BrandForm
-
+from .forms import  Category
+from .forms import ProductCreateForm
 
 def product_create_view(request):
+
+    if request.method == 'POST':
+        form = ProductCreateForm(request.POST)
+        if form.is_valid():
+            category_option_id = form.cleaned_data['category_option']
+            category_custom_option = form.cleaned_data['category_custom']
+            if category_option_id:
+                try:
+                    selected_option = Category.objects.get(id=category_option_id)
+                    
+                except:
+                    Category.objects.create(name=category_custom_option)
+                
+
+    else:
+        form = ProductCreateForm()
+
     state = {
-        "forms":  {
-            "product_form": ProductForm(),
-            "product_variant_form": ProductVariantForm(),
-            "product_image_set_form": ProductImageSetForm(),
-            "product_image_form": ProductImageForm(),
-            "product_color_form": ProductColorForm(),
-            "product_category_form": ProductCategoryForm(),
-            "product_memory_form": ProductMemoryForm(),
-            "product_size_form": ProductSizeForm(),
-            "product_company_form": CompanyForm(),
-            "product_brand_form": BrandForm(),
-            "product__variant_custom_character_from": ProductVariantCustomCharacterForm(),
-            "product_custom_character_form": CustomCharacterForm(),
-            "product_custom_character_option_form": CustomCharacterOptionForm(), 
-        },
+        "form": ProductCreateForm()
     }
 
     return render(request, 'product_create_page.html', state)

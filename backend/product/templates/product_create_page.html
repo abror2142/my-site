@@ -1,15 +1,32 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+
 {% block main %}
 <div class="product-from">
-    <form>
-        {{ forms.product_form|crispy }}
-        {{forms.product_variant_form|crispy}}
-        {% comment %} {{forms.product_form}}
-        {{forms.product_form}}
-        {{forms.product_form}}
-        {{forms.product_form}}
-        {{forms.product_form}} {% endcomment %}
+    <div class="product-create-header">
+        <h1>
+            Add your product!
+        </h1>
+        <div class="need-help">
+            <i class="fa-solid fa-circle-info"></i>
+            <p>
+                Need help?
+            </p>
+        </div>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="button-box">
+            <button>
+                Live preview
+            </button>
+            <button type="submit">
+                Save
+            </button>
+        </div>
     </form>
 </div>
 {% endblock main %}

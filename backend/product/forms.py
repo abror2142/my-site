@@ -1,80 +1,31 @@
 from django import forms
 
-from .models import Brand, Company, Product, ProductColor, ProductCategory, ProductImage, ProductImageSet, ProductMemory, ProductSize, ProductVariant, ProductVariantCustomCharacter, CustomCharacter, CustomCharacterOption
+from .models import (Brand, Company, Category, Product, 
+                     ProductColor, ProductCategory, ProductImage, 
+                     ProductImageSet, ProductMemory, ProductSize, 
+                     ProductVariant, ProductVariantCustomCharacter, 
+                     CustomCharacter, CustomCharacterOption)
 
 
-class BrandForm(forms.ModelForm):
-    class Meta:
-        model = Brand
-        fields = ['name']
+class ProductCreateForm(forms.Form):
+    company_option = forms.ChoiceField(label="Choose", required=False)
+    category_custom = forms.CharField(label="Add", required=False)
+    brand_option = forms.ChoiceField(label="Choose", required=False)
+    brand_custom = forms.CharField(label="Add", required=False)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        company_options = [(obj.id, obj.name) for obj in Category.objects.all()]
+        company_options.insert(0, (-1, "Select a choice!"))
+        brand_options = [(obj.id, obj.name) for obj in Brand.objects.filter()]
+        self.fields['company_option'].choices = company_options
 
-class CompanyForm(forms.ModelForm):
-    class Meta:
-        model = Company
-        fields = ['name']
+    def clean(self):
+        cleaned_data = super().clean()
+        company_option = cleaned_data.get('company_option')
+        company_custom = cleaned_data.get('company_custom')
 
-    
-class ProductForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = ['name']
-
-class ProductVariantForm(forms.ModelForm):
-    class Meta:
-        model = ProductVariant
-        fields = '__all__'
-
-
-class ProductCategoryForm(forms.ModelForm):
-    class Meta:
-        model = ProductCategory
-        fields = '__all__'
-
-
-class ProductColorForm(forms.ModelForm):
-    class Meta:
-        model = ProductColor
-        fields = ['name', 'code']
-
-
-class ProductMemoryForm(forms.ModelForm):
-    class Meta:
-        model = ProductMemory
-        fields = ['label']
-
-
-class ProductImageSetForm(forms.ModelForm):
-    class Meta:
-        model = ProductImageSet
-        fields = '__all__'
-
-
-class ProductImageForm(forms.ModelForm):
-    class Meta:
-        model = ProductImage
-        fields = '__all__'
-
-
-class ProductSizeForm(forms.ModelForm):
-    class Meta:
-        model = ProductSize
-        fields = '__all__'
-
-
-class CustomCharacterForm(forms.ModelForm):
-    class Meta:
-        model = CustomCharacter
-        fields = '__all__'
-
+        if not company_custom and not company_option:
+            raise forms.ValidationError("Please choose or enter a valid category name.")
         
-class CustomCharacterOptionForm(forms.ModelForm):
-    class Meta:
-        model = CustomCharacterOption
-        fields = '__all__'
-
-
-class ProductVariantCustomCharacterForm(forms.ModelForm):
-    class Meta:
-        model = ProductVariantCustomCharacter
-        fields = '__all__'
+        return cleaned_data
